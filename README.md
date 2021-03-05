@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+## INSC*** ATS Candidate Search Bookmarklet
 
-You can use the [editor on GitHub](https://github.com/jiatern/INSC-ATS-Seach/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+This bookmarklet allows you to search on INSC*** ATS using candidate's email or name.
+Click the bookmark with any website open (as long as not a blank tab). Ideally the ATS itself.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+You can drag and drop the bookmarklet below to your Bookmark bar to save it.
 
-### Markdown
+[ATS Search](javascript: { var val= prompt("\nSearch ATS for email or names. Examples: \n\njohnsmith@gmail.com \nmailto:johnsmith@gmail.com \nJohn Smith","");}
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+if (val.indexOf('@') > -1) {  
+{ val= val.replace("mailto:", ""); } { location='https://recruit.inscale.net/candidates?utf8=%E2%9C%93&candidate%5Bsolr_query%5D='+ val; } } 
 
-```markdown
-Syntax highlighted code block
+else { location='https://recruit.inscale.net/candidates?utf8=%E2%9C%93&candidate%5Bfirst_name%5D='+ val + '&candidate%5Blast_name%5D=' + val; })
 
-# Header 1
-## Header 2
-### Header 3
+or you can manually add the following code as a bookmark:
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
+javascript: { var val= prompt("\nSearch ATS for email or names. Examples: \n\njohnsmith@gmail.com \nmailto:johnsmith@gmail.com \nJohn Smith","");}
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+if (val.indexOf('@') > -1) {  
+{ val= val.replace("mailto:", ""); } { location='https://recruit.inscale.net/candidates?utf8=%E2%9C%93&candidate%5Bsolr_query%5D='+ val; } } 
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jiatern/INSC-ATS-Seach/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+else { location='https://recruit.inscale.net/candidates?utf8=%E2%9C%93&candidate%5Bfirst_name%5D='+ val + '&candidate%5Blast_name%5D=' + val; }
+```
